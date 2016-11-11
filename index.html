@@ -7,7 +7,8 @@
             
         <script src="js/jquery.js"></script>
 		<script src="js/jquerymobile145/jquery.mobile-1.4.5.js"></script>
-        <script src="js/index.js"></script>
+        <!--<script src="js/index.js"></script>-->
+        <script src="js/formularioTrayecto.js"></script>
         
         <link rel="stylesheet" href="js/jquerymobile145/jquery.mobile-1.4.5.css">	
 		
@@ -19,50 +20,88 @@
         
         <title>Musicaltren</title>
         
-        <style>
-        #leftIcon {
-            float: left;
-        }
-        #rightIcon {
-            float: right;
-        }
-        </style>
-        
     </head>
     
     <body>
         
         <div data-role="page" id="principal">
-            
+                 
+            <div data-role="panel" data-position="left" data-display="push" id="leftPanel">
+                <!-- panel content goes here -->
+            </div> <!-- /panel -->
+        
             <div data-role="header">
                 <h1>Musicaltren</h1>
-                <a href="#leftPanel" data-icon="bars" data-iconpos="notext">Menu</a>
-                <a href="#settings" data-icon="gear" data-iconpos="notext">Settings</a>
-            </div> <!-- /header -->
+                <a href="#leftPanel">Menu</a>
+                <a href="#settings">Settings</a>
+            </div> <!-- /header-->
+                        
+            <div data-role="content">
+                <form>
+                    <fieldset data-role="controlgroup">
+                        <legend>Elige tu trayecto:</legend>              
+                        <select id="lineas" data-native-menu="false">
+                            <option value="vacio" data-placeholder="true">Línea</option>
+                            <option value="1">Línea de prueba 1</option>
+                            <option value="2">Línea de prueba 2</option>
+                            <option value="3">Línea de prueba 3</option>
+                        </select>
+                        
+                    </fieldset>
 
-            <div data-role="panel" id="leftPanel" data-position="left"> 
-                <ul>
-                    <li>PLAYLISTS</li>
-                    <li>ARCHIVOS</li>
-                    <li>MI RUTA</li>
-                    <li>ETC</li>
+                    <a href="#" class="ui-btn" onclick="recogerInput();">Qué línea he seleccionado?</a>
+                    
+                        <select disabled="disabled" id="origen" data-native-menu="false" data-inline="true">
+                            <option value="choose-one" data-placeholder="true">Estación de origen</option>
+                            <option value="1">1.1</option>
+                            <option value="2">1.2</option>
+                            <option value="3">1.3</option>
+                            <option value="4">2.1</option>
+                            <option value="5">2.2</option>
+                            <option value="6">2.3</option>
+                            <option value="7">3.1</option>
+                            <option value="8">3.2</option>
+                            <option value="9">3.3</option>
+                        </select>
+
+                        <select disabled="false" id="destino" data-native-menu="false">
+                            <option value="choose-one" data-placeholder="true">Estacion de destino</option>
+                            <option value="1">Destino 1</option>
+                            <option value="2">Destino 2</option>
+                            <option value="3">Destino 3</option>
+                        </select>
+
+                </form>
+                   
+                <p>Lista de reproducción:</p>
+                <ul data-role="listview" data-inset="true">
+                    <li><a href="#">
+                        <img src="../_assets/img/album-bb.jpg">
+                    <h2>Título canción 1</h2>
+                    <p>Grupo</p></a>
+                    </li>
+                    <li><a href="#">
+                        <img src="../_assets/img/album-hc.jpg">
+                    <h2>Título canción 2</h2>
+                    <p>Grupo</p></a>
+                    </li>
+                    <li><a href="#">
+                        <img src="../_assets/img/album-p.jpg">
+                    <h2>Título canción 3</h2>
+                    <p>Grupo</p></a>
+                    </li>
                 </ul>
-            </div> <!-- /panel -->
             
-            <div data-role="main" class="ui-content">
-                <center>
-                Aquí la lista de reproducción             
-                </center>
-            </div>     
-        
-        </div> <!-- principal/page -->
+            </div> <!-- /content-->
+            
+        </div> <!-- principal page -->
         
         <div data-role="page" id="settings">
             <div>
                 <p>Aquí los settings</p>
-                <a href="#principal" class="ui-btn ui-btn-inline">Volver</a>
+                <a href="#principal" class="ui-btn">Volver a principal</a>
             </div>
-        </div> <!-- settings/page -->
+        </div> <!-- settings page -->
 
     </body>
 </html>
