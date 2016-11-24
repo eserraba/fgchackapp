@@ -6,17 +6,77 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
             
         <script src="js/jquery.js"></script>
-		<script src="js/jquerymobile145/jquery.mobile-1.4.5.js"></script>
-        <!--<script src="js/index.js"></script>-->
-        <script src="js/formularioTrayecto.js"></script>
-        
-        <link rel="stylesheet" href="js/jquerymobile145/jquery.mobile-1.4.5.css">	
-		
-        <!--
+        <link rel="stylesheet" href="js/jquerymobile145/jquery.mobile-1.4.5.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
+		<script src="js/jquerymobile145/jquery.mobile-1.4.5.js"></script>
+        <script src="js/formularioTrayecto.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+        <!--<script src="js/index.js"></script>-->
+        
+        
+       	
+		
+        
+        <!--
         <link rel="stylesheet" href="themes/mytheme.min.css" />
 		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
         -->  
+        
+       <style>
+           
+#firstpagecontent {
+    background-image: url(img/background.jpg );
+   min-height: 300px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        }
+             
+ #headercontent {
+    background-color: orange;
+ }
+
+  .ui-body-f {
+    background-color: orange;
+}
+           
+ .ui-btn-f {
+    background-color: orange;
+}
+           
+#colorbotonp  {
+    background-color: #fbc280;
+ }    
+           
+ #botontransparent  {
+    background-color: transparent;
+     border-color: transparent;
+ }  
+           
+#origen {
+    background-color: orange;
+ }         
+           
+.ui-btn-f {
+    background-color: transparent;
+}
+           
+.ui-select-f {
+    background-color: transparent;
+}
+           
+.center {
+    margin: auto;
+    width: 304px;
+    heigh: 228px;
+    border: 3px ;
+    padding: 10px;
+}           
+           
+           
+</style>
+             
         
         <title>Musicaltren</title>
         
@@ -24,35 +84,70 @@
     
     <body>
         
-        <div data-role="page" id="principal">
+        <div data-role="page" id="principal">  <!-- ****** page ********* principal-->
                  
-            <div data-role="panel" data-position="left" data-display="push" id="leftPanel">
+            <div data-role="panel" data-position="left" data-display="overlay" id="leftPanel" data-theme="f" >
                 <!-- panel content goes here -->
-            </div> <!-- /panel -->
+                
+              <p style="color:white">Lista de reproducción:</p>
+                <ul data-role="listview" data-inset="true" >
+                    <li>
+                        <a href="#infoapp"  class="ui-btn #" id="colorbotonp" data-transition="none">
+                        <img src="img/album-bb.jpg">
+                        <h6>Informacion App</h6>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#generarplaylist" class="ui-btn #" id="colorbotonp" data-transition="none">
+                        <img src="img/album-hc.jpg">
+                        <h6>Generar play list</h6>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#"class="ui-btn #" id="colorbotonp" data-transition="none">
+                        <img src="img/album-p.jpg">
+                        <h6>Notificaciones</h6>
+                        </a>
+                    </li>
+                    
+                </ul>
+            
+            </div>  <!-- /panel-->
+            
         
-            <div data-role="header">
-                <h1>Musicaltren</h1>
-                <a href="#leftPanel">Menu</a>
+            <div data-role="header" id="headercontent" >
+                
+               <h1><img src="img/Nombre.png" alt="Mountain View" style="width:120px;height:50px;align=middle;"></h1> 
+
+                <a href="#leftPanel" class="ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext" ></a>
                 <a href="#settings">Settings</a>
+                
             </div> <!-- /header-->
                         
-            <div data-role="content">
+           <div data-role="content" id="firstpagecontent">   <!-- ****** page ********* firstpagecontent-->
+          <!--    <div data-role="content"  class="fixed-bg">  -->
+                
                 <form>
-                    <fieldset data-role="controlgroup">
-                        <legend>Elige tu trayecto:</legend>              
-                        <select id="lineas" data-native-menu="false">
-                            <option value="vacio" data-placeholder="true">Línea</option>
+                    <fieldset data-role="controlgroup" >
+                        <legend style="color:white">Elige tu trayecto:</legend> 
+                        
+                        <select id="lineas" data-native-menu="false" class=" ui-select-f">
+                            <option value="vacio" data-placeholder="true" >Línea</option>
                             <option value="1">Línea de prueba 1</option>
                             <option value="2">Línea de prueba 2</option>
                             <option value="3">Línea de prueba 3</option>
                         </select>
-                        
+                
                     </fieldset>
 
-                    <a href="#" class="ui-btn" onclick="recogerInput();">Qué línea he seleccionado?</a>
-                    
-                        <select disabled="disabled" id="origen" data-native-menu="false" data-inline="true">
-                            <option value="choose-one" data-placeholder="true">Estación de origen</option>
+                    <a href="#" class="ui-btn " onclick="recogerInput();" id="botontransparent" >
+                        <p style="color:white" >Qué línea he seleccionado?
+                        </p>
+                    </a>
+                        <select id="origen" data-native-menu="false" class="ui-icon-location ui-btn-icon-left ui-select-f">
+                            <option value="choose-one" data-placeholder="true" >Estación de origen</option>
                             <option value="1">1.1</option>
                             <option value="2">1.2</option>
                             <option value="3">1.3</option>
@@ -64,7 +159,7 @@
                             <option value="9">3.3</option>
                         </select>
 
-                        <select disabled="false" id="destino" data-native-menu="false">
+                        <select id="destino" data-native-menu="false" class="ui btn ui-icon-location ui-btn-icon-left">
                             <option value="choose-one" data-placeholder="true">Estacion de destino</option>
                             <option value="1">Destino 1</option>
                             <option value="2">Destino 2</option>
@@ -72,36 +167,170 @@
                         </select>
 
                 </form>
-                   
-                <p>Lista de reproducción:</p>
-                <ul data-role="listview" data-inset="true">
-                    <li><a href="#">
-                        <img src="../_assets/img/album-bb.jpg">
-                    <h2>Título canción 1</h2>
-                    <p>Grupo</p></a>
-                    </li>
-                    <li><a href="#">
-                        <img src="../_assets/img/album-hc.jpg">
-                    <h2>Título canción 2</h2>
-                    <p>Grupo</p></a>
-                    </li>
-                    <li><a href="#">
-                        <img src="../_assets/img/album-p.jpg">
-                    <h2>Título canción 3</h2>
-                    <p>Grupo</p></a>
-                    </li>
-                </ul>
-            
-            </div> <!-- /content-->
-            
-        </div> <!-- principal page -->
+               
+               <div class="center">
+               
+                  <div class="ui-grid-a">
+               
+                  <div class="ui-block-a " style="border:1px ; width:152px;  height:114px; background-color:orange; ">
+                    <span><img src="img/Icon_casa.png" style="width:75px; height:57px;"></span>
+                  </div>
+               
+                  <div class="ui-block-b " style="border:1px ;width:152px;  height:114px; background-color:#fcd2a3;">
+                    <span><img src="img/icon_trabajo.png" style="width:75px; height:57px;"></span>
+                  </div>    
+               
+                 <div class="ui-block-a " style="border:1px ; width:152px;  height:114px; background-color:#fcd2a3;">
+                   <span><img src="img/Icon_casa.png" style="width:75px; height:57px;"></span>
+                 </div>
+               
+                  <div class="ui-block-b" style="border:1px ; height: 114px; width: 152px; background-color:orange;">
+                    <span><img src="img/Icon_plus.png" style="width:75px;  height:57px;"></span>
+                  </div>        
+                </div>
+               
+              </div>   
+               
+          </div> 
+         </div> <!--/end principal page -->   
         
-        <div data-role="page" id="settings">
+        <div data-role="page" id="settings"> <!-- ****** page ********* settings-->
             <div>
-                <p>Aquí los settings</p>
-                <a href="#principal" class="ui-btn">Volver a principal</a>
-            </div>
-        </div> <!-- settings page -->
+                  <div data-role="header" id="headercontent" >
+                
+               <h1><img src="img/Nombre.png" alt="Mountain View" style="width:120px;height:50px;align=middle;"></h1> 
 
+                <a href="#leftPanel" class="ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext" ></a>
+                <a href="#settings" data-transition="none">Settings</a>
+                
+                 </div> <!-- /header-->
+            </div>
+            
+                <p>Aquí los settings</p>
+                <a href="#principal" >Volver a principal</a>
+            </div><!-- /end settings page -->
+        
+        
+              
+        <div data-role="page" id="infoapp"> <!-- ****** page ********* infoapp-->
+            
+                  
+              <div data-role="panel" data-position="left" data-display="overlay" id="leftPanelinfoapp">
+                            panel content goes here 
+
+                          <p>Lista de reproducción:</p>
+                            <ul data-role="listview" data-inset="true">
+                                <li><a href="#infoapp" class="ui-btn #" data-transition="none">
+                                    <img src="img/album-bb.jpg">
+                                <h6>Informacion App</h6>
+                                </a>
+                                </li>
+                                <li><a href="#generarplaylist" data-transition="none" >
+                                    <img src="img/album-hc.jpg">
+                                <h6>Generar play list</h6>
+                                </a>
+                                </li>
+                                <li><a href="#"class="ui-btn #" data-transition="none">
+                                    <img src="img/album-p.jpg">
+                                <h6>Notificaciones</h6>
+                                </a>
+                                </li>
+                            </ul>
+
+                        </div> 
+        
+                <div data-role="header" id="headercontent" >
+                
+                       <h1><img src="img/Nombre.png" alt="Mountain View" style="width:120px;height:50px;align=middle;"></h1> 
+
+                        <a href="#leftPanelinfoapp" class="ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext" ></a>
+                        <a href="#settings" data-transition="none">Settings</a>
+                
+                </div> <!-- /header-->
+  
+      
+                <div data-role="main" class="ui-content">
+                <p>Click on the button below to open the Panel.</p>
+
+
+                    <div>
+               <a href="#principal" data-transition="none" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">page one</a>
+
+                  </div>  
+              </div>
+    
+              <div data-role="footer">
+                <h1>Page Footer</h1>
+                   </div> 
+        </div>  
+            
+ 
+        
+        <div data-role="page" id="generarplaylist"><!-- ****** page ********* generarplaylist-->
+            
+                  <div data-role="panel" data-position="left" data-display="overlay" id="leftPanelgenerarplay">
+                            panel content goes here 
+                          <p>Lista de reproducción:</p>
+                            <ul data-role="listview" data-inset="true">
+                                <li><a href="#infoapp" class="ui-btn #" data-transition="none">
+                                    <img src="img/album-bb.jpg">
+                                <h6>Informacion App</h6>
+                                </a>
+                                </li>
+                                <li><a href="#generarplaylist" class="ui-btn #" data-transition="none">
+                                    <img src="img/album-hc.jpg">
+                                <h6>Generar play list</h6>
+                                </a>
+                                </li>
+                                <li><a href="#"class="ui-btn #" data-transition="none">
+                                    <img src="img/album-p.jpg">
+                                <h6>Notificaciones</h6>
+                                </a>
+                                </li>
+                            </ul>
+                        </div> 
+
+                <div data-role="header" id="headercontent" >
+                   <h1><img src="img/Nombre.png" alt="Mountain View" style="width:120px;height:50px;align=middle;"></h1> 
+                    <a href="#leftPanelgenerarplay" class="ui-btn ui-corner-all ui-icon-bullets ui-btn-icon-notext" ></a>
+                    <a href="#settings">Settings</a>
+                </div> 
+
+                <div data-role="main" class="ui-content">
+                    <p>Click on the button below to open the Panel.</p>
+                    <div>
+                        <a href="#principal" data-transition="none" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">page one</a>
+                   </div> 
+                    
+                   
+                    
+                         
+                   <div id="theaudio"><!-- /inicio reproductor-->
+                   
+                    <a href="#" class="btn large" onclick="playAudio();">Play Audio</a>
+                    <a href="#" class="btn large" onclick="pauseAudio();">Pause Playing Audio</a>
+                    <a href="#" class="btn large" onclick="stopAudio();">Stop Playing Audio</a>
+                    <p id="audio_position"></p>
+                        
+                        
+                       
+                       
+                   </div><!-- /final reproductor-->
+                  
+            
+            
+            
+            
+            
+            
+               </div>
+
+                  <div data-role="footer">
+                    <h1>Page Footer</h1>
+                  </div> 
+        </div>  <!-- /end generalolaylist-->
+      <!--
+        <script src="js/formularioTrayecto.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/main.js"></script> -->
     </body>
 </html>
